@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: laptop_checkout_development
+  pool: 5
+  username: postgres
+  password: eur0p3
+  host: localhost
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: laptop_checkout_test
+  pool: 5
+  username: postgres
+  password: eur0p3
+  host: localhost
