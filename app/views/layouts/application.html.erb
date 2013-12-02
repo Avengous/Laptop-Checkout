@@ -1,14 +1,88 @@
+<% provide(:title, 'Checkout') %>
+
 <!DOCTYPE html>
 <html>
-<head>
-  <title>LaptopCheckout</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+	<style>
+		body {
+			background-color: white;
+		}
+		
+		#logo {
+			background-image: url('/assets/logo.jpg');
+			background-size: 400px 80px;
+			background-repeat:no-repeat;
+			height: 80px;
+			width: 400px;
+			margin: 0 auto;
+		}
+		
+		#big_button {
+			background-image: -webkit-linear-gradient(top, rgba(101,156,186,1) 100%,rgba(114,112,181,1) 100%);
+			background-image:    -moz-linear-gradient(top, rgba(101,156,186,1) 100%,rgba(114,112,181,1) 100%);
+			background-image:     -ms-linear-gradient(top, rgba(101,156,186,1) 100%,rgba(114,112,181,1) 100%);
+			background-image:      -o-linear-gradient(top, rgba(101,156,186,1) 100%,rgba(114,112,181,1) 100%);
+			background-image:         linear-gradient(top, rgba(101,156,186,1) 100%,rgba(114,112,181,1) 100%);
+			border: solid 1px rgba(0,0,0,1);
+			width: 120px;
+			height: 65px;
+			display: inline-block;
+			font-size: 16px;
+			line-height: 26px;
+			text-align: center;
+			color: rgba(0,0,0,1);
+			font-weight: bold;
+			
+			box-shadow: 
+			  	0 1px 2px #fff, /*bottom external highlight*/
+			  	0 -1px 1px #666, /*top external shadow*/ 
+			 	inset 0 -1px 1px rgba(0,0,0,0.5), /*bottom internal shadow*/ 
+			  	inset 0 1px 1px rgba(255,255,255,0.8); /*top internal highlight*/
+		}
+		#big_button:hover {
+  			border: solid 2px rgba(0,0,0,1);
+		}
+		#big_button:active {
+		}
+		
+		#small_button {
+			background-image: -webkit-linear-gradient(top, rgba(101,156,186,1) 100%,rgba(114,112,181,1) 100%);
+			background-image:    -moz-linear-gradient(top, rgba(101,156,186,1) 100%,rgba(114,112,181,1) 100%);
+			background-image:     -ms-linear-gradient(top, rgba(101,156,186,1) 100%,rgba(114,112,181,1) 100%);
+			background-image:      -o-linear-gradient(top, rgba(101,156,186,1) 100%,rgba(114,112,181,1) 100%);
+			background-image:         linear-gradient(top, rgba(101,156,186,1) 100%,rgba(114,112,181,1) 100%);
+			border: solid 1px rgba(0,0,0,1);
+			width: 71px;
+			height: 22px;
+			display: inline-block;
+			font-size: 12px;
+			line-height: 22px;
+			text-align: center;
+			color: rgba(0,0,0,1);
+			font-weight: bold;
+			
+			box-shadow: 
+			  	0 1px 2px #fff, /*bottom external highlight*/
+			  	0 -1px 1px #666, /*top external shadow*/ 
+			 	inset 0 -1px 1px rgba(0,0,0,0.5), /*bottom internal shadow*/ 
+			  	inset 0 1px 1px rgba(255,255,255,0.8); /*top internal highlight*/
+		}
+		#small_button:hover {
+  			border: solid 2px rgba(0,0,0,1);
+		}
+		#small_button:active {
+		}
+	</style>
+		
+	<head>
+	  <title>
+	  	YUPS | <%= yield(:title) %>
+	  </title>
+	  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	  <%= csrf_meta_tags %>
+	</head>
+	
+	<body>
+		<%= yield %>	
+	</body>
 </html>
