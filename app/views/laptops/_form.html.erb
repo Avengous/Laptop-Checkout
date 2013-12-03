@@ -1,0 +1,31 @@
+<% provide(:title, 'Laptops') %>
+
+<br />
+<header id="logo"></header>
+<h1>Users</h1>
+
+<%= form_for(@laptop) do |f| %>
+  <% if @laptop.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@laptop.errors.count, "error") %> prohibited this laptop from being saved:</h2>
+
+      <ul>
+      <% @laptop.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :scan_code %><br>
+    <%= f.text_field :scan_code %>
+  </div>
+  <div class="field">
+    <%= f.label :item_name %><br>
+    <%= f.text_field :item_name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

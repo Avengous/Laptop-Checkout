@@ -1,5 +1,5 @@
-<html>
-	<style>		
+<% provide(:title, 'Users') %>
+<style>		
 		h1 {
 			text-align: center;
 			font-family: arial;
@@ -7,39 +7,92 @@
 		}
 		
 		table {
+			border-collapse: collapse;
+			width: 0 auto;
 			margin: 0 auto;
+			empty-cells: show;
+			
+		}
+		
+		table tr th {
+			border-bottom: 2px solid black;
 		}
 		
 		table tr td {
-			padding-left: 10px;
-			padding-right: 10px;
+		}
+		
+		table tr {
+			text-align: left;
 		}
 		
 		#navbar {
-			width: 600px;
-			height: 100px;
+			width: 0 auto;
 			margin: 0 auto;
+			float: left;
 		}
 		
-	</style>
-
-	<br />
-	<header id="logo"></header>
-	<h1>Laptop Checkout</h1>
-	
-	<table>
-		<tr><td><br /></td></tr>
+		#spacing {
+			padding-right: 40px;
+		}
 		
-		<tr>
-			<td><a href="/users/new"><button id="big_button">Add User</button></a></td>
-			<td><a href="/laptops/new"><button id="big_button">Add Laptop</button></a></td>
-		</tr>
-	</table>
-	
-	<br />
-	
-	<div id="navbar">
-		<a href="/home"><button id="small_button">Home</button></a>
-	</div>
-	
-</html>
+		#id {
+			text-align: center;
+		}
+		
+		#bottom_border {
+			border-top: 2px solid black;
+			padding-top: 5px;
+		}
+</style>
+<br />
+<header id="logo"></header>
+<h1>Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th id="id">#</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+      	<td id="id"><%= user.id %></td>
+        <td id="spacing"><%= user.first_name %> <%= user.last_name%></td>
+        <td id="spacing"><%= user.email %></td>
+        <td><button id="table_button"><%= link_to 'Show', user %></button></td>
+        <td><button id="table_button"><%= link_to 'Edit', edit_user_path(user) %></button></td>
+        <td><button id="table_button"><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+      </tr>
+    <% end %>
+  </tbody>
+  
+  <tr>
+  	<td id="bottom_border">
+  		<div id="navbar">
+			<a href="/"><button id="small_button">Home</button></a>
+		</div>
+  	</td>
+  	<td id="bottom_border">
+  		<div id="navbar">
+			<a href="/manage"><button id="small_button">Return</button></a>
+		</div>
+  	</td>
+  	<td id="bottom_border"></td>
+  	<td id="bottom_border"></td>
+  	<td id="bottom_border"></td>
+  	<td id="bottom_border"><button id="table_button"><%= link_to 'New User', new_user_path %></button></td>
+  </tr>
+</table>
+
+<br>
+
+
+

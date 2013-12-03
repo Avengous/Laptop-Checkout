@@ -1,29 +1,19 @@
-<html>
-	<style>		
-		h1 {
-			text-align: center;
-			font-family: arial;
-			font-size: 20px;
-		}
-		
-		#navbar {
-			width: 600px;
-			height: 100px;
-			margin: 0 auto;
-		}
-		
-	</style>
+<p id="notice"><%= notice %></p>
 
-	<br />
-	<header id="logo"></header>
-	<h1>Status</h1>
-	
-	<%= @user.firstname %>, <%= @user.lastname %>, <%= @user.email %>
-	
-	<br />
-	
-	<div id="navbar">
-		<a href="/home"><button id="small_button">Home</button></a>
-	</div>
-	
-</html>
+<p>
+  <strong>First name:</strong>
+  <%= @user.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @user.last_name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

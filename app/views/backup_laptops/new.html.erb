@@ -1,0 +1,72 @@
+<% provide(:title, 'New Item') %>
+	<style>
+		#checkout {
+			width: 380px;
+			height: 90px;
+			margin: 0 auto;
+			background-color: #CCC;
+			border: black;
+			border-style: solid;
+			border-width: 2px;		
+		}
+		
+		#checkout table {
+			margin: 0 auto;
+		}
+		
+		#labels {
+			font-weight: bold;
+		}
+		
+		#labels td {
+			padding-left: 5px;
+		}
+		
+		h1 {
+			text-align: center;
+			font-family: arial;
+			font-size: 20px;
+		}
+		
+		#navbar {
+			width: 0 auto;
+			height: 100px;
+			margin: 0 auto;
+			text-align: center;
+		}
+	</style>
+
+	<br />
+	
+	<header id="logo"></header>
+	
+<h1>New Item</h1>
+	<form id="checkout" name="checkout">
+	    <%= form_for(@laptop) do |f| %>
+				<table>
+					<tr id="labels">
+				      <td>Item Name</td>
+				      <td>Scan Code</td>
+			      	</tr>
+			      	
+			      	<tr>
+			      		<td><%= f.text_field :ItemName %></td>
+			      		<td><%= f.text_field :ScanCode %></td>
+			      	</tr>
+			      	
+				    	<td><%= f.submit "Add Item", class: "btn btn-large btn-primary" %></tr>
+				    </td>			    		
+		      	</table>
+	    <% end %>
+	</form>
+	
+	<body OnLoad="document.checkout.ItemName.focus()" />
+	
+	<br />
+	
+	<div id="navbar">
+		<a href="/"><button id="small_button">Home</button></a>
+		<a href="/manage"><button id="small_button">Return</button></a>
+	</div>
+
+

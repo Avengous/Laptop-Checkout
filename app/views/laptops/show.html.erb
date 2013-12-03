@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Scan code:</strong>
+  <%= @laptop.scan_code %>
+</p>
+
+<p>
+  <strong>Item name:</strong>
+  <%= @laptop.item_name %>
+</p>
+
+<%= link_to 'Edit', edit_laptop_path(@laptop) %> |
+<%= link_to 'Back', laptops_path %>
