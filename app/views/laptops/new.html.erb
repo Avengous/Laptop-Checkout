@@ -1,0 +1,67 @@
+<html>
+	<style>
+		#checkout {
+			width: 500px;
+			height: 100px;
+			margin: 0 auto;
+			background-color: #CCC;
+			border: black;
+			border-style: solid;
+			border-width: 2px;		
+		}
+		
+		#checkout table {
+			padding-left: 20px;
+			margin: 0 auto;
+		}
+		
+		#labels {
+			font-weight: bold;
+		}
+		
+		#labels td {
+			padding-left: 5px;
+		}
+		
+		h1 {
+			text-align: center;
+			font-family: arial;
+			font-size: 20px;
+		}
+		
+		#navbar {
+			width: 600px;
+			height: 100px;
+			margin: 0 auto;
+		}
+	</style>
+
+	<br />
+	<header id="logo"></header>
+	<h1>New Item</h1>
+	
+	<form id="checkout" name="checkout">
+		<table>
+			<tr><br /></tr>
+			<tr id="labels">
+				<td>Item Name</td>
+				<td>Scan Code</td>
+			</tr>
+			
+			<tr>
+				<td><input type="text" name="ItemName"/></td>
+				<td><input type="text" name="ScanCode"/></td>
+				<td><button>Add Item</button></td>
+			</tr>
+		</table>
+	</form>
+	
+	<body OnLoad="document.checkout.ItemName.focus()" />
+	
+	<br />
+	
+	<div id="navbar">
+		<a href="/home"><button id="small_button">Home</button></a>
+		<a href="/manage"><button id="small_button">Return</button></a>
+	</div>
+</html>
