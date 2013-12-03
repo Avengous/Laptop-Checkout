@@ -1,5 +1,6 @@
 LaptopCheckout::Application.routes.draw do
-  get 'checkout' => 'index#checkout'
+  get 'check-out' => 'index#checkout'
+  get 'check-in' => 'index#checkin'
   get 'home' => 'index#home'
   
   # The priority is based upon order of creation: first created -> highest priority.
