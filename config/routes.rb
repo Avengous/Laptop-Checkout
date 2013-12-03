@@ -1,7 +1,10 @@
 LaptopCheckout::Application.routes.draw do
+  resources :users
+  resources :laptops
   get 'check-out' => 'index#checkout'
   get 'check-in' => 'index#checkin'
   get 'home' => 'index#home'
+  get 'manage' => 'users#index'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
