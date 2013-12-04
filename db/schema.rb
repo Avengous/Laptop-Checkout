@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131203224317) do
+ActiveRecord::Schema.define(version: 20131204173945) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,18 +22,20 @@ ActiveRecord::Schema.define(version: 20131203224317) do
   end
 
   create_table "transactions", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "laptop_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "laptops_id" #Foreign Key
+    t.integer  "users_id" #Foreign Key
+    t.boolean  "checked_out" #Filled when user checks out
+    t.datetime "checked_out_time" #Timestamp filled when user checks out
+    t.boolean  "checked_in"
+    t.datetime "checked_in_time"
+    t.datetime "created_at" #When user checks out
+    t.datetime "updated_at" #When user checks in
   end
 
   create_table "users", force: true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
   end
 
 end

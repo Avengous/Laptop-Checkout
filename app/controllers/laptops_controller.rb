@@ -6,6 +6,15 @@ class LaptopsController < ApplicationController
   def index
     @laptops = Laptop.all
   end
+  
+    def find_laptop_by_id(id)
+    laptops = Laptop.all
+    laptops.each do |x|
+      if x.id == id then
+        return x.item_name
+      end
+    end
+  end
 
   # GET /laptops/1
   # GET /laptops/1.json

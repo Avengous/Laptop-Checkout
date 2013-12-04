@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Laptops:</strong>
+  <%= @transaction.laptops_id %>
+</p>
+
+<p>
+  <strong>Users:</strong>
+  <%= @transaction.users_id %>
+</p>
+
+<p>
+  <strong>Checked out:</strong>
+  <%= @transaction.checked_out %>
+</p>
+
+<p>
+  <strong>Checked out time:</strong>
+  <%= @transaction.checked_out_time %>
+</p>
+
+<p>
+  <strong>Checked in:</strong>
+  <%= @transaction.checked_in %>
+</p>
+
+<p>
+  <strong>Checked in time:</strong>
+  <%= @transaction.checked_in_time %>
+</p>
+
+<%= link_to 'Edit', edit_transaction_path(@transaction) %> |
+<%= link_to 'Back', transactions_path %>

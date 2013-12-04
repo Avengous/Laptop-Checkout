@@ -6,6 +6,16 @@ class UsersController < ApplicationController
   def index
     @users = User.all
   end
+  
+  def find_user_by_id(id)
+    users = User.all
+    users.each do |x|
+      if x.id == id then
+        name = "#{x.first_name} #{x.last_name}"
+        return name
+      end
+    end
+  end
 
   # GET /users/1
   # GET /users/1.json
