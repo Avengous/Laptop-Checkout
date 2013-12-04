@@ -56,7 +56,6 @@
       <th>Scan Code</th>
       <th></th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -67,9 +66,8 @@
       	<td id="id"><%= laptop.id %></td>
         <td id="spacing"><%= laptop.item_name %></td>
         <td id="spacing"> <%= laptop.scan_code%> </td>
-        <td><button id="table_button"><%= link_to 'Show', laptop %></button></td>
         <td><button id="table_button"><%= link_to 'Edit', edit_laptop_path(laptop) %></button></td>
-        <td><button id="table_button"><%= link_to 'Destroy', laptop, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+        <td><button id="table_button"><%= link_to 'Delete', laptop, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
       </tr>
     <% end %>
   </tbody>
@@ -85,7 +83,6 @@
 			<a href="/manage"><button id="small_button">Return</button></a>
 		</div>
   	</td>
-  	<td id="bottom_border"></td>
   	<td id="bottom_border"></td>
   	<td id="bottom_border"></td>
   	<td id="bottom_border"><button id="table_button"><%= link_to 'New laptop', new_laptop_path %></button></td>

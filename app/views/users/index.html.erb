@@ -56,7 +56,6 @@
       <th>Email</th>
       <th></th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -67,9 +66,8 @@
       	<td id="id"><%= user.id %></td>
         <td id="spacing"><%= user.first_name %> <%= user.last_name%></td>
         <td id="spacing"><%= user.email %></td>
-        <td><button id="table_button"><%= link_to 'Show', user %></button></td>
         <td><button id="table_button"><%= link_to 'Edit', edit_user_path(user) %></button></td>
-        <td><button id="table_button"><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+        <td><button id="table_button"><%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
       </tr>
     <% end %>
   </tbody>
@@ -85,7 +83,6 @@
 			<a href="/manage"><button id="small_button">Return</button></a>
 		</div>
   	</td>
-  	<td id="bottom_border"></td>
   	<td id="bottom_border"></td>
   	<td id="bottom_border"></td>
   	<td id="bottom_border"><button id="table_button"><%= link_to 'New User', new_user_path %></button></td>

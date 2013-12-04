@@ -1,9 +1,25 @@
 <% provide(:title, 'Laptops') %>
-
-<br />
-<header id="logo"></header>
-<h1>Users</h1>
-
+<style>
+		h1 {
+			text-align: center;
+			font-family: arial;
+			font-size: 20px;
+		}
+		
+		body {
+			
+		}
+		
+		form {
+			margin: 0 auto;
+			width: 100px;
+			padding-right: 50px;
+			font-weight: bold;
+			color: black;
+		}
+		
+</style>
+<body>
 <%= form_for(@laptop) do |f| %>
   <% if @laptop.errors.any? %>
     <div id="error_explanation">
@@ -18,14 +34,16 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :scan_code %><br>
-    <%= f.text_field :scan_code %>
-  </div>
-  <div class="field">
     <%= f.label :item_name %><br>
     <%= f.text_field :item_name %>
   </div>
+  <div class="field">
+    <%= f.label :scan_code %><br>
+    <%= f.text_field :scan_code %>
+  </div>
   <div class="actions">
     <%= f.submit %>
+	<a href="/laptops"><button>Return</button></a>
   </div>
 <% end %>
+</body>

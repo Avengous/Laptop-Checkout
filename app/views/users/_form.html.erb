@@ -19,11 +19,6 @@
 		}
 		
 </style>
-
-<br />
-<header id="logo"></header>
-<h1>New User</h1>
-<br />
 <body>
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
@@ -52,7 +47,7 @@
   </div>
   <div class="actions">
     <%= f.submit %>
-	<a href="/manage"><button>Return</button></a>
+	<a href="/users"><button>Return</button></a>
   </div>
 <% end %>
 </body>
