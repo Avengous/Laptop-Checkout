@@ -17,19 +17,20 @@ ActiveRecord::Schema.define(version: 20131204173945) do
   enable_extension "plpgsql"
 
   create_table "laptops", force: true do |t|
-    t.string "scan_code"
-    t.string "item_name"
+    t.string  "scan_code"
+    t.string  "item_name"
+    t.boolean "available", default: true
   end
 
   create_table "transactions", force: true do |t|
-    t.integer  "laptops_id" #Foreign Key
-    t.integer  "users_id" #Foreign Key
-    t.boolean  "checked_out" #Filled when user checks out
-    t.datetime "checked_out_time" #Timestamp filled when user checks out
+    t.integer  "laptops_id"
+    t.integer  "users_id"
+    t.boolean  "checked_out"
+    t.datetime "checked_out_time"
     t.boolean  "checked_in"
     t.datetime "checked_in_time"
-    t.datetime "created_at" #When user checks out
-    t.datetime "updated_at" #When user checks in
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

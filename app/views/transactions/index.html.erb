@@ -59,7 +59,7 @@
     		<% if transaction.checked_out == true then %>
     			<tr>
     				<td><%= LaptopsController.new.find_laptop_by_id(transaction.laptops_id) %></td>
-			        <td><%= UsersController.new.find_user_by_id(transaction.laptops_id.to_i)%></td>
+			        <td><%= UsersController.new.find_user_by_id(transaction.users_id.to_i)%></td>
 			        <td><%= TransactionsController.new.format_timestamp(transaction.checked_out_time) %></td>
 		    	</tr>
     		<% end %>

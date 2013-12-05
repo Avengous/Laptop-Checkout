@@ -10,5 +10,10 @@
   <%= @laptop.item_name %>
 </p>
 
+<p>
+  <strong>Available?:</strong>
+  <%= @laptop.available %>
+</p>
+
 <%= link_to 'Edit', edit_laptop_path(@laptop) %> |
 <%= link_to 'Back', laptops_path %>

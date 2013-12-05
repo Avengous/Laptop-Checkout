@@ -1,3 +1,29 @@
+<% provide(:title, 'Laptops') %>
+<style>
+		h1 {
+			text-align: center;
+			font-family: arial;
+			font-size: 20px;
+		}
+		
+		body {
+			
+		}
+		
+		form {
+			margin: 0 auto;
+			width: 150px;
+			padding-right: 50px;
+			font-weight: bold;
+			color: black;
+		}
+		
+		select {
+			width: 150px;
+		}
+		
+</style>
+
 <%= form_for(@transaction) do |f| %>
   <% if @transaction.errors.any? %>
     <div id="error_explanation">
@@ -12,30 +38,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :laptops_id %><br>
-    <%= f.number_field :laptops_id %>
+    <%= f.label "Available Laptops" %><br>
+    <%= f.collection_select(:laptops_id, Laptop.where(:available => true), :id, :item_name) %>
   </div>
   <div class="field">
-    <%= f.label :users_id %><br>
-    <%= f.number_field :users_id %>
-  </div>
-  <div class="field">
-    <%= f.label :checked_out %><br>
-    <%= f.check_box :checked_out %>
-  </div>
-  <div class="field">
-    <%= f.label :checked_out_time %><br>
-    <%= f.datetime_select :checked_out_time %>
-  </div>
-  <div class="field">
-    <%= f.label :checked_in %><br>
-    <%= f.check_box :checked_in %>
-  </div>
-  <div class="field">
-    <%= f.label :checked_in_time %><br>
-    <%= f.datetime_select :checked_in_time %>
+    <%= f.label "Select User" %><br>
+    <%= f.collection_select(:users_id, User.all, :id, :full_name) %>
   </div>
   <div class="actions">
     <%= f.submit %>
+    <a href="/"><button>Return</button></a>
   </div>
 <% end %>

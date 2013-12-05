@@ -4,9 +4,11 @@ LaptopCheckout::Application.routes.draw do
   resources :laptops
   
   get 'check-out' => 'transactions#new'
-  get 'check-in' => 'transactions#edit'
+  #get 'check-in' => 'transactions#edit'
   get 'manage' => 'index#manage'
   get 'status' => 'transactions#index'
+  get 'check-in' => 'index#scan'
+
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
