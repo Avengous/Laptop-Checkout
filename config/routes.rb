@@ -1,20 +1,16 @@
 LaptopCheckout::Application.routes.draw do
   resources :transactions
-  resources :users
-  resources :laptops
+  resources :users, :path => "manage/users"
+  resources :laptops, :path => "manage/laptops"
   
-  get 'check-out' => 'transactions#new'
-  #get 'check-in' => 'transactions#edit'
-  get 'manage' => 'index#manage'
-  get 'status' => 'transactions#index'
   get 'check-in' => 'laptops#scan'
-  get 'check-in/:id' => 'laptops#checkin_edit'
-  get 'laptops?scan_code=:scan_code' => 'laptops#scan'
+  get 'check-out' => 'transactions#new'
+  get 'status' => 'transactions#index'
+  get 'manage' => 'index#manage'
 
-#Test
-resources :laptops do
-  put :scan, :on => :collection
-end
+  resources :laptops do
+    put :scan, :on => :collection
+  end
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

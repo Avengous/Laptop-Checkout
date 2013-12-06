@@ -7,20 +7,30 @@
 		}
 		
 		body {
-			
+			text-align: center;
 		}
 		
 		form {
 			margin: 0 auto;
-			width: 150px;
-			padding-right: 50px;
 			font-weight: bold;
 			color: black;
+			text-align: left;
 		}
 		
 		select {
 			width: 150px;
 		}
+		
+		#avail_laptops {
+			width: 150px;
+		}
+		
+		#buttons {
+			width: 150px;
+			display: inline-block;
+			padding-left: 1px;
+		}
+		
 		
 </style>
 
@@ -37,16 +47,16 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label "Available Laptops" %><br>
+  <div class="field" id="avail_laptops">
+    <%= f.label :laptops, "Available Laptops"  %><br>
     <%= f.collection_select(:laptops_id, Laptop.where(:available => true), :id, :item_name) %>
   </div>
   <div class="field">
-    <%= f.label "Select User" %><br>
+    <%= f.label :users, "Select User" %><br>
     <%= f.collection_select(:users_id, User.all, :id, :full_name) %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-    <a href="/"><button>Return</button></a>
+  <div class="actions" id="buttons">
+    <%= f.submit "Check Out", :id => "small_button"%>
+    <a href=<%= root_path %>><button id="small_button">Return</button></a>
   </div>
 <% end %>

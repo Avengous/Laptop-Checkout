@@ -7,15 +7,24 @@
 		}
 		
 		body {
-			
+			text-align: center;
 		}
 		
 		form {
 			margin: 0 auto;
-			width: 100px;
-			padding-right: 50px;
 			font-weight: bold;
 			color: black;
+			text-align: left;
+		}
+		
+		#form_field {
+			width: 160px;
+		}
+		
+		#buttons {
+			width: 150px;
+			display: inline-block;
+			padding-left: 6px;
 		}
 		
 </style>
@@ -34,16 +43,17 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :item_name %><br>
-    <%= f.text_field :item_name %>
+    <%= f.label "Item Name" %><br>
+    <%= f.text_field :item_name, :id => "form_field" %>
   </div>
   <div class="field">
-    <%= f.label :scan_code %><br>
-    <%= f.text_field :scan_code %>
+    <%= f.label "Scan Code" %><br>
+    <%= f.text_field :scan_code, :id => "form_field" %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-	<a href="/laptops"><button>Return</button></a>
+  <div class="actions" id="buttons">
+    <%= f.submit "Create", :id => "small_button" %>
+    <a href=<%= laptops_path %>><button id="small_button">Return</button></a>
   </div>
 <% end %>
 </body>
+

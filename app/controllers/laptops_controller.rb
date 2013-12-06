@@ -66,7 +66,7 @@ class LaptopsController < ApplicationController
 
     respond_to do |format|
       if @laptop.save
-        format.html { redirect_to '/laptops', notice: 'Laptop was successfully created.' }
+        format.html { redirect_to laptops_path, notice: 'Laptop was successfully created.' }
         format.json { render action: 'show', status: :created, location: @laptop }
       else
         format.html { render action: 'new' }
@@ -80,7 +80,7 @@ class LaptopsController < ApplicationController
   def update
     respond_to do |format|
       if @laptop.update(laptop_params)
-        format.html { redirect_to '/laptops', notice: 'Laptop was successfully updated.' }
+        format.html { redirect_to laptops_path, notice: 'Laptop was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
