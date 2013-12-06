@@ -1,4 +1,6 @@
 LaptopCheckout::Application.routes.draw do
+  resources :user_histories, :path => "user/history"
+  resources :laptop_histories, :path => "laptop/history"
   resources :transactions
   resources :users, :path => "manage/users"
   resources :laptops, :path => "manage/laptops"

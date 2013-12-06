@@ -11,10 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131204173945) do
+ActiveRecord::Schema.define(version: 20131206220620) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "laptop_histories", force: true do |t|
+    t.integer "laptop_id"
+    t.integer "transaction_id"
+  end
 
   create_table "laptops", force: true do |t|
     t.string  "scan_code"
@@ -27,10 +32,12 @@ ActiveRecord::Schema.define(version: 20131204173945) do
     t.integer  "users_id"
     t.boolean  "checked_out"
     t.datetime "checked_out_time"
-    t.boolean  "checked_in"
     t.datetime "checked_in_time"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  end
+
+  create_table "user_histories", force: true do |t|
+    t.integer "user_id"
+    t.integer "transaction_id"
   end
 
   create_table "users", force: true do |t|

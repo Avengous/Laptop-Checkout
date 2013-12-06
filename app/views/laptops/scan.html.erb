@@ -27,9 +27,15 @@
 <header id="logo"></header>
 <h1>Check-In Laptop</h1>
 
-<body>
+<script>
+	function clearFields(){
+		//alert(window.document.getElementById("scan_tag").value);
+	}
+</script>
+
+<body onload="clearFields()">
 	<form action="check-in" method="put">
-	    <%= text_field_tag :scan_code, params[:scan_code], :placeholder => "Scan Code" %>  
+	    <%= text_field_tag :scan_code, params[:scan_code], :placeholder => "Scan Code", :id => "scan_tag" %>  
 	    
 	    <%= button_tag(:id => "small_button", :type => 'submit', :name => nil) do
   			content_tag(:strong, 'Check-In!') end %>
@@ -38,6 +44,4 @@
 			<a href="/"><button id="small_button">Return</button></a>
   		</div>
 	</form> 
-
-
 </body>

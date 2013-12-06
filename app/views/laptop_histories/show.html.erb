@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Laptop:</strong>
+  <%= @laptop_history.laptop_id %>
+</p>
+
+<p>
+  <strong>Transaction:</strong>
+  <%= @laptop_history.transaction_id %>
+</p>
+
+<%= link_to 'Edit', edit_laptop_history_path(@laptop_history) %> |
+<%= link_to 'Back', laptop_histories_path %>

@@ -1,0 +1,25 @@
+<%= form_for(@laptop_history) do |f| %>
+  <% if @laptop_history.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@laptop_history.errors.count, "error") %> prohibited this laptop_history from being saved:</h2>
+
+      <ul>
+      <% @laptop_history.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :laptop_id %><br>
+    <%= f.number_field :laptop_id %>
+  </div>
+  <div class="field">
+    <%= f.label :transaction_id %><br>
+    <%= f.number_field :transaction_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

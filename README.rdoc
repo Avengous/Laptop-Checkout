@@ -1,9 +1,6 @@
 == Laptop Checkout README
 This is an application that will be used to keep track of Laptops or other items that are checked out by students at Year Up Puget Sound.
 
+Requirements:
 * Ruby 2.0.0-p353
 * PostgreSQL
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
