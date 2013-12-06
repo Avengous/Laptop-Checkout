@@ -35,11 +35,15 @@
 
   <div class="field">
     <%= f.label :item_name %><br>
-    <%= f.text_field :item_name %>
+    <%= f.text_field :item_name, :disabled => true %>
   </div>
   <div class="field">
     <%= f.label :scan_code %><br>
-    <%= f.text_field :scan_code %>
+    <%= f.text_field :scan_code, :disabled => true %>
+  </div>
+  <div class="field">
+    <%= f.label :available %><br>
+    <%= f.text_field :available, :disabled => true %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -1,0 +1,43 @@
+<% provide(:title, 'Laptops') %>
+<style>
+		h1 {
+			text-align: center;
+			font-family: arial;
+			font-size: 20px;
+		}
+		
+		body {
+			
+		}
+		
+		form {
+			margin: 0 auto;
+			width: 0 auto;
+			text-align: center;
+			font-weight: bold;
+			color: black;
+		}
+		div {
+			padding-right: 155px;
+			padding-top: 5px;
+		}
+		
+</style>
+<br />
+<header id="logo"></header>
+<h1>Check-In Laptop</h1>
+
+<body>
+	<form action="check-in" method="put">
+	    <%= text_field_tag :scan_code, params[:scan_code], :placeholder => "Scan Code" %>  
+	    
+	    <%= button_tag(:id => "small_button", :type => 'submit', :name => nil) do
+  			content_tag(:strong, 'Check-In!') end %>
+  			
+  		<div class="actions">
+			<a href="/"><button id="small_button">Return</button></a>
+  		</div>
+	</form> 
+
+
+</body>

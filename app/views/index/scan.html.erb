@@ -40,7 +40,6 @@
 	<header id="logo"></header>
 	<h1>Laptop Check-In Form</h1>
 	
-	<form id="checkout" name="checkout">
 		<table>
 			<tr><br /></tr>
 			<tr id="labels">
@@ -48,13 +47,12 @@
 			</tr>
 			
 			<tr>
-				<td><input type="text" name="ScanCode"/></td>
-				<td><button>Check-In</button></td>
+				<td><%= text_field(:laptops, :scan_code)%></td>
+				<td><%= button_to 'Check-In', :controller => 'index', :action => 'find_laptop_by_scan_code' %></td>
 			</tr>
 		</table>
-	</form>
-	
-	<body OnLoad="document.checkout.ScanCode.focus()" />
+		
+	<body OnLoad="document.checkout.scan_code.focus()" />
 	
 	<br />
 	

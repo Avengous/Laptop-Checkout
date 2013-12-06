@@ -1,6 +1,8 @@
 class LaptopsController < ApplicationController
   before_action :set_laptop, only: [:show, :edit, :update, :destroy]
+  after_action :scan
 
+  
   # GET /laptops
   # GET /laptops.json
   def index
@@ -16,9 +18,36 @@ class LaptopsController < ApplicationController
     end
   end
 
+  def update_available(scan_code)
+    laptops = Laptop.all
+    transactions = Transaction.all
+    
+    laptops.each do |x|
+      if x.scan_code == scan_code then
+        x.update_attribute(:available, true) 
+        transactions.each do |y|
+          if y.laptops_id == x.id then
+            y.update_attribute(:checked_out, false)
+            y.update_attribute(:checked_in_time, Time.now)
+          end
+        end
+        
+        break
+      end
+    end
+  end
+
   # GET /laptops/1
   # GET /laptops/1.json
   def show
+  end
+  
+  def scan
+        update_available(params[:scan_code])
+        puts "Test"
+  end
+  
+  def checkin_edit
   end
 
   # GET /laptops/new
@@ -73,7 +102,7 @@ class LaptopsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_laptop
-      @laptop = Laptop.find(params[:id])
+      @laptop = Laptop.find(params[:id])     
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
