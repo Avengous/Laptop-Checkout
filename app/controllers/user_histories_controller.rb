@@ -1,5 +1,11 @@
 class UserHistoriesController < ApplicationController
-  before_action :set_user_history, only: [:show, :edit, :update, :destroy, :create]
+  before_action :set_user_history, only: [:show, :edit, :update, :destroy, :create, :search, :add_record]
+  
+  #<%= link_to k.name, :controller => "search", :action => "keywords", :search => k.name %>
+  def search
+    @user_histories = UserHistory.where(:user_id => params[:user_id])
+    render :action => :index
+  end
   
   # GET /user_histories
   # GET /user_histories.json

@@ -21,7 +21,6 @@ class TransactionsController < ApplicationController
   def check_out
     @transaction.update_attribute(:checked_out, true)
     @transaction.update_attribute(:checked_out_time,  Time.now)
-    
     match_id = @transaction.laptops_id
     laptops = Laptop.all
     

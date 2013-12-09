@@ -18,6 +18,9 @@
 			color: black;
 		}
 		div {
+			margin: 0 auto;
+			width: 0 auto;
+			text-align: center;
 			padding-right: 155px;
 			padding-top: 5px;
 		}
@@ -28,20 +31,33 @@
 <h1>Check-In Laptop</h1>
 
 <script>
-	function clearFields(){
-		//alert(window.document.getElementById("scan_tag").value);
+	function resetForm(form){
+    	form.reset();
 	}
+	function clearField(field){
+		field.value = '';
+		return true;
+	}
+	function clearText(field){
+		if(field.defaultValue == field.value){
+		field.value = “”;
+		} 
+		else if(field.value == “”){
+			field.value = field.defaultValue;
+		}
+	}
+	
 </script>
 
-<body onload="clearFields()">
-	<form action="check-in" method="put">
-	    <%= text_field_tag :scan_code, params[:scan_code], :placeholder => "Scan Code", :id => "scan_tag" %>  
+<body>
+	<form action="check-in" method="post">
+		<%= token_tag %>
+	    <%= text_field_tag :scan_code, params[:scan_code], :placeholder => "Scan Code", :id => "scan_tag", :autofocus => true %>  
 	    
 	    <%= button_tag(:id => "small_button", :type => 'submit', :name => nil) do
-  			content_tag(:strong, 'Check-In!') end %>
-  			
-  		<div class="actions">
+  			content_tag(:strong, 'Check-In!') end %>		
+	</form> 
+	  	<div class="actions">
 			<a href="/"><button id="small_button">Return</button></a>
   		</div>
-	</form> 
 </body>
