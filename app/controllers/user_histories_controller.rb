@@ -1,5 +1,5 @@
 class UserHistoriesController < ApplicationController
-  before_action :set_user_history, only: [:show, :edit, :update, :destroy, :create, :search, :add_record]
+  before_action :set_user_history, only: [:show, :edit, :update, :destroy, :create]
   
   #<%= link_to k.name, :controller => "search", :action => "keywords", :search => k.name %>
   def search

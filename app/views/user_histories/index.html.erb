@@ -1,22 +1,24 @@
+
+
 <h1>User History</h1>
 
 <table>
   <thead>
     <tr>
       <th>User</th>
-      <th>Transaction</th>
-      <th></th>
+      <th>Laptop</th>
+      <th>Checked Out</th>
+      <th>Checked In</th>
     </tr>
   </thead>
 
   <tbody>
     <% @user_histories.each do |user_history| %>
       <tr>
-        <td><%= user_history.user_id %></td>
-        <td><%= user_history.transaction_id %></td>
-        <td><%= link_to 'Show', user_history, method: :show %></td>
-        <td><%= link_to 'Destroy', user_history, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to "TEST", :controller => "user_histories", :action => "search", :user_id => "1" %></td>
+      	<td><%= UsersController.new.find_user_by_id(user_history.user_id.to_i) %> </td>
+        <td><%= TransactionsController.new.history_report(user_history.transaction_id.to_i, 0) %></td>
+        <td><%= TransactionsController.new.history_report(user_history.transaction_id.to_i, 1) %></td>
+        <td><%= TransactionsController.new.history_report(user_history.transaction_id.to_i, 2) %></td>
       </tr>
     <% end %>
   </tbody>

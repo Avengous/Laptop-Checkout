@@ -49,6 +49,25 @@ class TransactionsController < ApplicationController
     result = "#{date} #{time_split.join ":"}"
     return result
   end
+  
+  #History Report - User - Laptop - When - Checked Out Time - Checked In Time
+  def history_report(transaction, x)
+    @transaction = Transaction.find(transaction)
+    laptopID = @transaction.laptops_id
+    outTime = @transaction.checked_out_time
+    inTime = @transaction.checked_in_time  
+    
+    if inTime == nil then
+      inTime = "N/A"
+    end
+    
+    laptop = LaptopsController.new.find_laptop_by_id(laptopID.to_i)
+    #laptopName = laptop.item_name
+    #laptopCode = laptop.scan_code
+    
+    report = [laptop, outTime, inTime]
+    return report[x]
+  end
 
   # GET /transactions/1
   # GET /transactions/1.json
