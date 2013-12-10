@@ -24,7 +24,7 @@ class TransactionsController < ApplicationController
   
   def check_out
     @transaction.update_attribute(:checked_out, true)
-    @transaction.update_attribute(:checked_out_time,  Time.now)
+    @transaction.update_attribute(:checked_out_time,  Time.zone.now)
     match_id = @transaction.laptops_id
     laptops = Laptop.all
     
@@ -37,7 +37,7 @@ class TransactionsController < ApplicationController
   
   def check_in
     @transaction.update_attribute(:checked_out, false)
-    @transaction.update_attribute(:checked_in_time,  Time.now)
+    @transaction.update_attribute(:checked_in_time,  Time.zone.now)
   end
   
   def format_timestamp(timestamp)
@@ -48,7 +48,7 @@ class TransactionsController < ApplicationController
       time = timestamp.strftime "%l:%M:%S%p"
       time_split = time.split ":"
   
-      time_split[0] = time_split[0].to_i - 8
+      time_split[0] = time_split[0].to_i
       if time_split[0].to_i  == 0 then
         time_split[0] = 12
       end
