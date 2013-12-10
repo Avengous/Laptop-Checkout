@@ -102,7 +102,6 @@ class TransactionsController < ApplicationController
   # POST /transactions.json
   def create
     @transaction = Transaction.new(transaction_params)
-
     respond_to do |format|
       if @transaction.save
         format.html { redirect_to '/check-out', notice: 'Transaction was successfully created.' }
@@ -149,6 +148,8 @@ class TransactionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def transaction_params
-      params.require(:transaction).permit(:laptops_id, :users_id, :checked_out, :checked_out_time, :checked_in, :checked_in_time)
+      if params[:transaction].present?
+        params.require(:transaction).permit(:laptops_id, :users_id, :checked_out, :checked_out_time, :checked_in, :checked_in_time)
+      end
     end
 end

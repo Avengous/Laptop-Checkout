@@ -11,7 +11,6 @@
 		}
 		
 		form {
-			margin: 0 auto;
 			font-weight: bold;
 			color: black;
 			text-align: left;
@@ -32,7 +31,7 @@
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <h2 id="test">Cannot Save User: <%= pluralize(@user.errors.count, "Error") %></h2>
 
       <ul>
       <% @user.errors.full_messages.each do |msg| %>

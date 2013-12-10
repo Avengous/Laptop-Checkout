@@ -25,24 +25,30 @@ div.field, div.actions {
 }
 
 .field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
+  padding: 1px;
+  color: red;
+  display: inline-block;
 }
 
 #error_explanation {
-  width: 450px;
-  border: 2px solid red;
+  position:relative;
+  top: 50%;
+  right: 40%;
+
+
+  width: 220px;
+  border: 2px solid #c00;
   padding: 7px;
   padding-bottom: 0;
-  margin-bottom: 20px;
+  display: inline-block;
+  margin-bottom: 5px;
   background-color: #f0f0f0;
 }
 
 #error_explanation h2 {
-  text-align: left;
+  text-align: center;
   font-weight: bold;
-  padding: 5px 5px 5px 15px;
+  padding-bottom: 2px;
   font-size: 12px;
   margin: -7px;
   margin-bottom: 0px;
@@ -52,5 +58,5 @@ div.field, div.actions {
 
 #error_explanation ul li {
   font-size: 12px;
-  list-style: square;
+  list-style: disc;
 }
