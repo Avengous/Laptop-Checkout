@@ -46,6 +46,9 @@
 			border-top: 2px solid black;
 			padding-top: 5px;
 		}
+		a { color: #000; }
+		a:visited { color: #000; }
+		a:hover { color: #fff; background-color:#000; }
 </style>
 <br />
 <header id="logo"></header>
@@ -67,7 +70,12 @@
     <% @users.each do |user| %>
       <tr>
       	<td id="id"><%= user.id %></td>
-        <td id="spacing"><%= user.first_name %> <%= user.last_name%></td>
+    	<td id="spacing">
+	    	<%= link_to "#{user.first_name} #{user.last_name}",
+	    		:controller => "user_histories",
+	    		:action => "search",
+	    		:user_id => user.id %>
+    	</td>
         <td id="spacing"><%= user.email %></td>
         <td><button id="table_button"><%= link_to 'Edit', edit_user_path(user) %></button></td>
         <td><button id="table_button"><%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>

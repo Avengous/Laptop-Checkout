@@ -46,6 +46,9 @@
 			border-top: 2px solid black;
 			padding-top: 5px;
 		}
+		a { color: #000; }
+		a:visited { color: #000; }
+		a:hover { color: #fff; background-color:#000; }
 </style>
 <br />
 <header id="logo"></header>
@@ -67,7 +70,12 @@
     <% @laptops.each do |laptop| %>
       <tr>
       	<td id="id"><%= laptop.id %></td>
-        <td id="spacing"><%= laptop.item_name %></td>
+    	<td id="spacing">
+	    	<%= link_to "#{laptop.item_name}",
+	    		:controller => "laptop_histories",
+	    		:action => "search",
+	    		:laptop_id => laptop.id %>
+    	</td>
         <td id="spacing"> <%= laptop.scan_code%> </td>
         <td><button id="table_button"><%= link_to 'Edit', edit_laptop_path(laptop) %></button></td>
         <td><button id="table_button"><%= link_to 'Delete', laptop, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
