@@ -51,6 +51,9 @@
 			border-top: 2px solid black;
 			padding-top: 5px;
 		}
+		a { color: #000; }
+		a:visited { color: #000; }
+		a:hover { color: #fff; background-color:#000; }
 </style>
 <br />
 <header id="logo"></header>
@@ -71,7 +74,12 @@
     <% @laptop_histories.each do |laptop_history| %>
       <tr>
       	<td id="name_td2"><%= LaptopsController.new.find_laptop_by_id(laptop_history.laptop_id.to_i) %> </td>
-        <td id="name_td"><%= TransactionsController.new.history_report(laptop_history.transaction_id.to_i, 3) %></td>
+    	<td>
+	    	<%= link_to TransactionsController.new.history_report(laptop_history.transaction_id.to_i, 3),
+	    		:controller => "user_histories",
+	    		:action => "search",
+	    		:user_id => TransactionsController.new.history_report(laptop_history.transaction_id.to_i, 5) %>
+    	</td>
         <td id="time_td"><%= TransactionsController.new.history_report(laptop_history.transaction_id.to_i, 1) %></td>
         <td id="time_td"><%= TransactionsController.new.history_report(laptop_history.transaction_id.to_i, 2) %></td>
       </tr>

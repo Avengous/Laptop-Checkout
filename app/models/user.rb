@@ -3,13 +3,18 @@ class User < ActiveRecord::Base
   validates :first_name,
             :presence => true,
             :uniqueness => { :case_sensitive => false }
+            
   validates :last_name,
             :presence => true,
             :uniqueness => { :case_sensitive => false }
+            
   validates_format_of :email,
+            :allow_blank => true,
             :multiline => true,
             :with => regex,
             :uniqueness => { :case_sensitive => false }
+
+
   def full_name
     "#{first_name} #{last_name}"
   end

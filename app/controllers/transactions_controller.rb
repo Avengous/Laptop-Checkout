@@ -76,7 +76,7 @@ class TransactionsController < ApplicationController
     #laptopName = laptop.item_name
     #laptopCode = laptop.scan_code
     
-    report = [laptop, outTime, inTime, user]
+    report = [laptop, outTime, inTime, user, laptopID, userID]
     return report[x]
   end
 

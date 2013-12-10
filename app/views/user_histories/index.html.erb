@@ -51,6 +51,9 @@
 			border-top: 2px solid black;
 			padding-top: 5px;
 		}
+		a { color: #000; }
+		a:visited { color: #000; }
+		a:hover { color: #fff; background-color:#000; }
 </style>
 <br />
 <header id="logo"></header>
@@ -71,7 +74,12 @@
     <% @user_histories.each do |user_history| %>
       <tr>
       	<td id="name_td2"><%= UsersController.new.find_user_by_id(user_history.user_id.to_i) %> </td>
-        <td id="name_td"><%= TransactionsController.new.history_report(user_history.transaction_id.to_i, 0) %></td>
+    	<td>
+	    	<%= link_to TransactionsController.new.history_report(user_history.transaction_id.to_i, 0),
+	    		:controller => "laptop_histories",
+	    		:action => "search",
+	    		:laptop_id => TransactionsController.new.history_report(user_history.transaction_id.to_i, 4) %>
+    	</td>
         <td id="time_td"><%= TransactionsController.new.history_report(user_history.transaction_id.to_i, 1) %></td>
         <td id="time_td"><%= TransactionsController.new.history_report(user_history.transaction_id.to_i, 2) %></td>
       </tr>
@@ -81,7 +89,7 @@
   <tr>
   	<td id="bottom_border">
   		<div id="navbar">
-			<a href="/status"><button id="small_button">Return</button></a>
+			<a href="/status"><button id="small_button">Back</button></a>
 		</div>
   	</td>
   	<td id="bottom_border"></td>
