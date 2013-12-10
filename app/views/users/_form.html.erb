@@ -46,16 +46,18 @@
     <%= f.label :first_name %><br>
     <%= f.text_field :first_name, :id => "form_field" %>
   </div>
+  
   <div class="field">
     <%= f.label :last_name %><br>
     <%= f.text_field :last_name, :id => "form_field" %>
   </div>
+  
   <div class="field">
     <%= f.label :email %><br>
     <%= f.text_field :email, :id => "form_field" %>
   </div>
   <div class="actions" id="buttons">
-    <a href=<%= users_path %>><button id="small_button">Return</button></a>
+  	<a href=<%= users_path %>><button type="button" id="small_button">Back</button></a>
     <%= f.submit "Create", :id => "small_button" %>
   </div>
 <% end %>
