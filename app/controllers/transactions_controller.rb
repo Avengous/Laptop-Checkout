@@ -1,7 +1,6 @@
 class TransactionsController < ApplicationController
   before_action :set_transaction, only: [:show, :edit, :update, :destroy]
-  after_filter :check_out, only: [:create]
-  #after_filter :checked_in, only: [:edit]
+  #after_filter :check_out, only: [:create]
   
   # GET /transactions
   # GET /transactions.json
@@ -108,6 +107,7 @@ class TransactionsController < ApplicationController
       if @transaction.save
         format.html { redirect_to '/check-out', notice: 'Transaction was successfully created.' }
         format.json { render action: 'show', status: :created, location: @transaction }
+        check_out()
         UserHistoriesController.new.add_record(@transaction)
         LaptopHistoriesController.new.add_record(@transaction)
       else
