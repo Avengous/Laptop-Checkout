@@ -1,4 +1,4 @@
-<% provide(:title, 'Status') %>
+<% provide(:title, 'History') %>
 <style>		
 		h1 {
 			text-align: center;
@@ -21,10 +21,10 @@
 			text-align: left;
 		}
 		
-		td, th {
+		td {
 			margin: 0 auto;
-			padding-right: 2px;
-			padding-left: 2px;
+			padding-right: 5px;
+			padding-left: 5px;
 		}
 		
 		#navbar {
@@ -32,11 +32,14 @@
 			margin: 0 auto;
 			float: left;
 		}
-		
 		#navbar2 {
 			width: 0 auto;
 			margin: 0 auto;
 			float: right;
+		}
+		
+		#spacing {
+			padding-right: 40px;
 		}
 		
 		#id {
@@ -53,7 +56,7 @@
 </style>
 <br />
 <header id="logo"></header>
-<h1>Checkout Status</h1>
+<h1>Checkout History</h1>
 
 
 <table>
@@ -62,12 +65,12 @@
       <th><div style='width: 150px'>Laptop</div></th>
       <th><div style='width: 150px'>Checked Out By</div></th>
       <th><div style='width: 150px'>Checked Out At</div></th>
+      <th><div style='width: 150px'>Checked In At</div></th>
     </tr>
   </thead>
 
   <tbody>
     <% @transactions.each do |transaction| %>
-    		<% if transaction.checked_out == true then %>
     			<tr>
     				<td>
 	    				<%= link_to LaptopsController.new.find_laptop_by_id(transaction.laptops_id),
@@ -84,8 +87,8 @@
     				</td>
     				
 			        <td><%= TransactionsController.new.format_timestamp(transaction.checked_out_time) %></td>
+			        <td><%= TransactionsController.new.format_timestamp(transaction.checked_in_time) %></td>
 		    	</tr>
-    		<% end %>
     <% end %>
     
   </tbody>
@@ -93,13 +96,14 @@
   <tr>
   	<td id="bottom_border">
   		<div id="navbar">
-			<a href=<%= root_path %>><button id="small_button">Home</button></a>
+			<a href=<%= status_path %>><button id="small_button">Back</button></a>
 		</div>
   	</td>
   	<td id="bottom_border"></td>
+  	<td id="bottom_border"></td>
   	<td id="bottom_border">
   		<div id="navbar2">
-			<a href=<%= history_path %>><button id="small_button">View All</button></a>
+			<a href=<%= root_path %>><button id="small_button">Home</button></a>
 		</div>
   	</td>
   </tr>

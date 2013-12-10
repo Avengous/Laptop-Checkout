@@ -9,7 +9,7 @@ LaptopCheckout::Application.routes.draw do
   get 'check-out' => 'transactions#new'
   get 'status' => 'transactions#index'
   get 'manage' => 'index#manage'
-  #get ':user_history/:show/:id/with_user/:user_id' => 'user_histories#index'
+  get 'history' => 'transactions#index_all'
 
   resources :laptops do
     put :scan, :on => :collection
@@ -17,6 +17,13 @@ LaptopCheckout::Application.routes.draw do
  
   get 'user/view' => 'user_histories#search'
   resources :user_histories do
+    collection do
+      get 'search'
+    end
+  end
+  
+  get 'laptop/view' => 'laptop_histories#search'
+  resources :laptop_histories do
     collection do
       get 'search'
     end

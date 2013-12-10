@@ -51,8 +51,8 @@
     <%= f.text_field :scan_code, :id => "form_field" %>
   </div>
   <div class="actions" id="buttons">
+    <a href=<%= laptops_path %>><button id="small_button">Back</button></a>
     <%= f.submit "Create", :id => "small_button" %>
-    <a href=<%= laptops_path %>><button id="small_button">Return</button></a>
   </div>
 <% end %>
 </body>

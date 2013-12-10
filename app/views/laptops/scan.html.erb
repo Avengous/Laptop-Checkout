@@ -55,9 +55,9 @@
 	    <%= text_field_tag :scan_code, params[:scan_code], :placeholder => "Scan Code", :id => "scan_tag", :autofocus => true %>  
 	    
 	    <%= button_tag(:id => "small_button", :type => 'submit', :name => nil) do
-  			content_tag(:strong, 'Check-In!') end %>		
+  			content_tag(:strong, 'Check-In') end %>		
 	</form> 
 	  	<div class="actions">
-			<a href="/"><button id="small_button">Return</button></a>
+			<a href="/"><button id="small_button">Home</button></a>
   		</div>
 </body>

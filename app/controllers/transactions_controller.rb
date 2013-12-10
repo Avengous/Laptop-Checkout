@@ -9,6 +9,10 @@ class TransactionsController < ApplicationController
     @transactions = Transaction.all
   end
   
+  def index_all
+    @transactions = Transaction.all
+  end
+  
   def check_if_laptop_is_available(id)
     transactions = Transaction.all
     transactions.each do |x|
@@ -37,35 +41,43 @@ class TransactionsController < ApplicationController
   end
   
   def format_timestamp(timestamp)
-    date = timestamp.strftime "%Y/%m/%d"
-    time = timestamp.strftime "%l:%M:%S%p"
-    time_split = time.split ":"
-
-    time_split[0] = time_split[0].to_i - 8
-    if time_split[0].to_i  == 0 then
-      time_split[0] = 12
+    if timestamp == nil then
+      return "N/A"
+    else
+      date = timestamp.strftime "%Y/%m/%d"
+      time = timestamp.strftime "%l:%M:%S%p"
+      time_split = time.split ":"
+  
+      time_split[0] = time_split[0].to_i - 8
+      if time_split[0].to_i  == 0 then
+        time_split[0] = 12
+      end
+  
+      result = "#{date} #{time_split.join ":"}"
+      return result
     end
-
-    result = "#{date} #{time_split.join ":"}"
-    return result
   end
   
   #History Report - User - Laptop - When - Checked Out Time - Checked In Time
   def history_report(transaction, x)
     @transaction = Transaction.find(transaction)
     laptopID = @transaction.laptops_id
-    outTime = @transaction.checked_out_time
-    inTime = @transaction.checked_in_time  
+    userID = @transaction.users_id
+    outTime = format_timestamp(@transaction.checked_out_time)
+    inTime = @transaction.checked_in_time
     
     if inTime == nil then
       inTime = "N/A"
+    else
+      inTime = format_timestamp(@transaction.checked_in_time)
     end
     
     laptop = LaptopsController.new.find_laptop_by_id(laptopID.to_i)
+    user = UsersController.new.find_user_by_id(userID.to_i)
     #laptopName = laptop.item_name
     #laptopCode = laptop.scan_code
     
-    report = [laptop, outTime, inTime]
+    report = [laptop, outTime, inTime, user]
     return report[x]
   end
 

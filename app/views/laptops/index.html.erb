@@ -18,7 +18,10 @@
 			border-bottom: 2px solid black;
 		}
 		
-		table tr td {
+		td, th {
+			margin: 0 auto;
+			padding-left:2px;
+			padding-right:2px;
 		}
 		
 		table tr {
@@ -75,12 +78,12 @@
   <tr>
   	<td id="bottom_border">
   		<div id="navbar">
-			<a href="/"><button id="small_button">Home</button></a>
+			<a href="/manage"><button id="small_button">Back</button></a>
 		</div>
   	</td>
   	<td id="bottom_border">
   		<div id="navbar">
-			<a href="/manage"><button id="small_button">Return</button></a>
+			<a href=<%= root_path %>><button id="small_button">Home</button></a>
 		</div>
   	</td>
   	<td id="bottom_border"></td>

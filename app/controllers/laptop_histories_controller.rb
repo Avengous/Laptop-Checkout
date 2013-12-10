@@ -3,6 +3,11 @@ class LaptopHistoriesController < ApplicationController
 
   # GET /laptop_histories
   # GET /laptop_histories.json
+  def search
+    @laptop_histories = LaptopHistory.where(:laptop_id => params[:laptop_id])
+    render :action => :index
+  end
+  
   def index
     @laptop_histories = LaptopHistory.all
   end

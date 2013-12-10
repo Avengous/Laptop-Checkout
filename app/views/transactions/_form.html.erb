@@ -56,7 +56,7 @@
     <%= f.collection_select(:users_id, User.all, :id, :full_name) %>
   </div>
   <div class="actions" id="buttons">
+    <a href=<%= root_path %>><button id="small_button">Home</button></a>
     <%= f.submit "Check Out", :id => "small_button"%>
-    <a href=<%= root_path %>><button id="small_button">Return</button></a>
   </div>
 <% end %>
