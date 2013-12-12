@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+ruby '2.0.0'
 gem 'rails', '4.0.1'
 gem 'pg'
 #gem 'protected_attributes'
@@ -10,6 +11,8 @@ group :development, :test do
 gem 'pg'
 gem 'rspec-rails'
 end
+
+gem 'rails_12factor', group: :production
 
 group :assets do
 # Use SCSS for stylesheets
